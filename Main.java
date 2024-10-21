@@ -1,72 +1,63 @@
-import java.util.Scanner;
+import java.util.*;
+class Books{
+String name,author;
+int price,numpages;
 
-class Subject {
-    int marks, credits, grade;
+Books(String name, String author, int price, int numpages)
+
+{
+
+this.name = name;
+this.author = author;
+this.price = price;
+this.numpages = numpages;
+
 }
+public String toString()
 
-class Student {
-    Subject[] subject;
-    String name, usn;
-    double SGPA;
-    Scanner s = new Scanner(System.in);
+{
 
-    Student() {
-        subject = new Subject[9];
-        for (int i = 0; i < 9; i++) {
-            subject[i] = new Subject();
-        }
-    }
+String name, author, price, numpages;
+name = "Book name: " + this.name + "\n";
+author = "Author name: " + this.author + "\n";
+price = "Price: " + this.price + "\n";
+numpages = "Number of pages: " + this.numpages + "\n";
+return name + author + price + numpages;
 
-    void getStudentDetails() {
-        System.out.println("Enter student name:");
-        this.name = s.nextLine();
-        System.out.println("Enter student USN:");
-        this.usn = s.nextLine();
-    }
-
-    void getMarks() {
-        for (int i = 0; i < 9; i++) {
-            System.out.println("Enter marks of subject " + (i + 1) + ":");
-            subject[i].marks = s.nextInt();
-            System.out.println("Enter credits of subject " + (i + 1) + ":");
-            subject[i].credits = s.nextInt();
-            
-            
-            subject[i].grade = (subject[i].marks / 10);
-            if (subject[i].grade > 10) {
-                subject[i].grade = 10;
-            } else if (subject[i].grade < 0) {
-                subject[i].grade = 0;
-            }
-        }
-    }
-
-    void computeSGPA() {
-        double points = 0;
-        double totalCredits = 0;
-        for (int i = 0; i < 9; i++) {
-            points += subject[i].credits * subject[i].grade;
-            totalCredits += subject[i].credits;
-        }
-        SGPA = totalCredits == 0 ? 0 : points / totalCredits; 
-        System.out.println("SGPA of the student is: " + SGPA);
-    }
-
-    void closeScanner() {
-        s.close(); 
-    }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student();
-        s1.getStudentDetails();
-        s1.getMarks();
-        System.out.println("Name: " + s1.name);
-        System.out.println("USN: " + s1.usn);
-        s1.computeSGPA();
-        s1.closeScanner(); 
-    }
 }
+class Main{
+public static void main(String[] args){
+Scanner input=  new Scanner(System.in);
 
+int n;
+String name;
+String author;
+int price;
+int numpages;
+
+System.out.println("Enter the number of books");
+n=input.nextInt();
+
+Books b[];
+b=new Books[n];
+for (int i=0;i<n;i++){
+System.out.println("Enter the book name:");
+name=input.next();
+System.out.println("Enter the author:");
+author=input.next();
+System.out.println("Enter the price:");
+price=input.nextInt();
+System.out.println("Enter the number of pages:");
+numpages=input.nextInt();
+b[i]=new Books(name,author,price,numpages);
+}
+for (int j=0;j<n;j++){
+System.out.println(b[j].toString());
+System.out.println("Name:K.chaitanya");
+System.out.println("USN:1BM23CS!144");
+
+}
+}
+}
 
