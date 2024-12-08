@@ -3,7 +3,6 @@ import java.util.Scanner;
 class InputScanner {
     Scanner scanner = new Scanner(System.in);
 
-   
     public int[] getRectangleDimensions() {
         System.out.print("Enter the length and breadth of the rectangle: ");
         int length = scanner.nextInt();
@@ -23,7 +22,6 @@ class InputScanner {
         return scanner.nextInt();
     }
 
-
     public void close() {
         scanner.close();
     }
@@ -33,7 +31,6 @@ abstract class Shape extends InputScanner {
     int dimension1;
     int dimension2;
 
-   
     Shape(int dimension1, int dimension2) {
         this.dimension1 = dimension1;
         this.dimension2 = dimension2;
@@ -42,16 +39,14 @@ abstract class Shape extends InputScanner {
     abstract void printArea();
 }
 
-
 class Rectangle extends Shape {
     Rectangle(int length, int breadth) {
         super(length, breadth);
     }
 
-
     @Override
     void printArea() {
-        double area = dimension1 * dimension2; 
+        double area = dimension1 * dimension2;
         System.out.println("Area of rectangle = " + area);
     }
 }
@@ -61,7 +56,6 @@ class Triangle extends Shape {
         super(base, height);
     }
 
-    
     @Override
     void printArea() {
         double area = 0.5 * dimension1 * dimension2;
@@ -69,41 +63,38 @@ class Triangle extends Shape {
     }
 }
 
-
 class Circle extends Shape {
     Circle(int radius) {
-        super(radius, 0); 
+        super(radius, 0);
     }
 
-   
     @Override
     void printArea() {
-        double area = Math.PI * Math.pow(dimension1, 2); 
+        double area = Math.PI * Math.pow(dimension1, 2);
         System.out.println("Area of circle = " + area);
     }
 }
 
-
-public class area {
+public class Area {
     public static void main(String[] args) {
         InputScanner inputScanner = new InputScanner();
 
-      
         int[] rectangleDimensions = inputScanner.getRectangleDimensions();
         Shape rectangle = new Rectangle(rectangleDimensions[0], rectangleDimensions[1]);
-        
+
         int[] triangleDimensions = inputScanner.getTriangleDimensions();
         Shape triangle = new Triangle(triangleDimensions[0], triangleDimensions[1]);
-        
+
         int circleRadius = inputScanner.getCircleRadius();
         Shape circle = new Circle(circleRadius);
 
-  
-        System.out.println(); 
+        System.out.println();
         rectangle.printArea();
         triangle.printArea();
         circle.printArea();
 
+        System.out.println("\nName: K.chaitanya");
+        System.out.println("UN:1BM23CS144");
 
         inputScanner.close();
     }
