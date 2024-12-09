@@ -18,6 +18,8 @@ class SwingDemo {
         JLabel alab = new JLabel();
         JLabel blab = new JLabel();
         JLabel anslab = new JLabel();
+        JLabel nameLabel = new JLabel();
+        JLabel rollNoLabel = new JLabel();
 
         jfrm.add(err); 
         jfrm.add(jlab);
@@ -27,6 +29,8 @@ class SwingDemo {
         jfrm.add(alab);
         jfrm.add(blab);
         jfrm.add(anslab);
+        jfrm.add(nameLabel);
+        jfrm.add(rollNoLabel);
 
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -37,6 +41,7 @@ class SwingDemo {
                     alab.setText("A = " + a);
                     blab.setText("B = " + b);
                     anslab.setText("Ans = " + ans);
+                    err.setText("");  // Clear error label if valid input
                 } catch (NumberFormatException e) {
                     alab.setText("");
                     blab.setText("");
@@ -51,6 +56,10 @@ class SwingDemo {
             }
         });
 
+    
+        nameLabel.setText("Name: K.CHAITANYA");
+        rollNoLabel.setText("USN:1BM23CS144");
+
         jfrm.setVisible(true);
     }
 
@@ -62,3 +71,4 @@ class SwingDemo {
         });
     }
 }
+
